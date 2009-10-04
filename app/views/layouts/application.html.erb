@@ -15,7 +15,6 @@
     <div id="header">
       <%= link_to("Books", books_path) %>
       <% if current_user %>
-      <%= link_to("Books", books_path) %>
          | <%= link_to "Edit profile", edit_user_path(:current) %> |
         <%= link_to "Logout", logout_path %>
       <% else %>

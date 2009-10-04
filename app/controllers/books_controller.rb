@@ -14,7 +14,7 @@ class BooksController < ResourceController::Base
   end
 
   def tagged
-    @books = @collecton = current_user.books.find_tagged_with(tag_selection)
+    @books = @collection = current_user.books.find_tagged_with(tag_selection)
     tags_in_scope
     render :index
   end
@@ -35,9 +35,9 @@ class BooksController < ResourceController::Base
 
   def collection
     if logged_in?
-      @books ||= @collection = current_user.books
+      @books = @collection ||= current_user.books
     else
-      @books ||= @collection = Book.all
+      @books = @collection ||= Book.all
     end
     tags_in_scope
     return @collection

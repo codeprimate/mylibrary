@@ -99,7 +99,13 @@ li.book_result { height: 60px;}
 
 li.book_result div.thumb {
     height: 55px;
+    width: 60px;
     float: left;
+}
+
+li.book_result div.thumb img {
+    float: right;
+    padding-right: 5px;
 }
 
 li.book_result div.info {

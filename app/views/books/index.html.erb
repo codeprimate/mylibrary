@@ -1,5 +1,4 @@
-<h1>Books</h1>
-
+<h3><%= pluralize(@collection.size, "Book") %> Found</h3>
 <ul class="book_list">
   <%= render @books %>
 </ul>
