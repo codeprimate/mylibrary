@@ -1,6 +1,8 @@
 <div id="subnav_actions">
-  <%= link_to("Add Book", new_book_path) %> |
   <%= link_to("All Books", books_path) %>
+  <% if logged_in? %> |
+    <%= link_to("Add Book", new_book_path) %>
+  <% end %>
 </div>
 
 <div id="subnav_cloud">

@@ -14,7 +14,12 @@ class BooksController < ResourceController::Base
   end
 
   def tagged
-    @books = @collection = current_user.books.find_tagged_with(tag_selection)
+    if logged_in?
+      @books = @collection = current_user.books.find_tagged_with(tag_selection, :match_all => true)
+    else
+      @books = @collection = Book.find_tagged_with(tag_selection, :match_all => true)
+    end
+    
     tags_in_scope
     render :index
   end

@@ -7,5 +7,9 @@ class Book < ActiveRecord::Base
 
   default_scope :order => "books.title ASC"
 
+  def to_param
+    "#{id}-#{title.gsub(/[^a-zA-Z0-9_-]/,'-').gsub(/-+/,'-')}"
+  end
+
 #  attr_accessible :title, :notes, :tag_list, :asset
 end

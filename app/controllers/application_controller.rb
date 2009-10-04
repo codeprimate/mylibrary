@@ -6,9 +6,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery # See ActionController::RequestForgeryProtection for details
   filter_parameter_logging :password
 
-  helper_method :current_user
-
-
+  helper_method :current_user, :logged_in?
 
   private
 
@@ -28,7 +26,6 @@ class ApplicationController < ActionController::Base
       flash[:error] = "You must be logged in to do that!"
       redirect_to login_path
       return false
-
     end
   end
 
@@ -41,7 +38,7 @@ class ApplicationController < ActionController::Base
   end
 
   def save_location
-    session[:location] = {:controller => params[:controller], :action => params[:action]}
+    session[:location] = params
     logger.info("== Saved location => #{session[:location].inspect}")
   end
 
