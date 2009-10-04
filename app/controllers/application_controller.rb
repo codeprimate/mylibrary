@@ -42,7 +42,17 @@ class ApplicationController < ActionController::Base
 
   def save_location
     session[:location] = {:controller => params[:controller], :action => params[:action]}
-      logger.info("== Saved location => #{session[:location].inspect}")
+    logger.info("== Saved location => #{session[:location].inspect}")
+  end
+
+  def guest_authorization
+    if logged_in?
+      return true
+    else
+      authenticate_or_request_with_http_basic do |username, password|
+        username == "guest" && password == "knowledge"
+      end
+    end
   end
   
 end

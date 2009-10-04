@@ -5,5 +5,7 @@ class Book < ActiveRecord::Base
   belongs_to :user
   acts_as_taggable
 
+  default_scope :order => "books.title ASC"
+
 #  attr_accessible :title, :notes, :tag_list, :asset
 end

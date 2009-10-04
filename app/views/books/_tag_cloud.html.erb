@@ -1,0 +1,13 @@
+<div id="book_tag_cloud">
+  <% unless (@tags || []).empty?  %>
+    <span class="title">Tags:</span>
+    <% @tags.each do |tag| %>
+      <span class="tag">
+        <%= link_to(h(tag), tagged_books_path(:tag => tag), :class => tag_selected_class(tag, @tag_selection)) %>
+      </span>
+    <% end  %>
+    <% unless @tag_selection.empty? %>
+      <span class="clear_link">[<%= link_to("clear", clear_book_tags_path) %>]</span>
+    <% end %>
+  <% end %>
+</div>

@@ -1,4 +1,14 @@
-<div>
+<div id="subnav_actions">
   <%= link_to("Add Book", new_book_path) %> |
   <%= link_to("All Books", books_path) %>
 </div>
+
+<div id="subnav_cloud">
+  <%= render :partial => "tag_cloud" %>
+</div>
+
+<div id="subnav_search">
+  Search
+</div>
+
+<div class="clear"></div>
