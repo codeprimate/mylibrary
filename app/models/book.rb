@@ -1,0 +1,9 @@
+class Book < ActiveRecord::Base
+  has_attached_file :asset, :styles => { :medium => ["300x300>", :png], :thumb => ["50x50>", :png] }
+
+  validates_presence_of :title
+  belongs_to :user
+  acts_as_taggable
+
+#  attr_accessible :title, :notes, :tag_list, :asset
+end

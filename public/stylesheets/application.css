@@ -1,0 +1,103 @@
+body {
+    color: #666;
+}
+
+div.clear { clear:both; }
+
+h1,h2 { color: black;}
+
+div#header {
+    text-align: right;
+    border-bottom: 2px solid #ccc;
+    padding: 0.5em;
+}
+
+
+ol.formList li {
+    list-style-type: none;
+}
+
+label {
+    font-weight: bold;
+    width: 250px;
+    display: inline;
+    float:left;
+    text-align: right;
+    padding-right: 0.5em;
+    vertical-align:center;
+    line-height: 2.5em;
+}
+
+input[type=password], input[type=text], textarea {
+    width: 30em;
+    padding: 0.3em;
+    margin: 0.5em;
+}
+
+input[type=password], input[type=text] {
+    height: 1.5em;
+}
+
+input[type=submit] {
+    margin-left: 250px;
+    font-size: 1.2em;
+}
+
+textarea {
+    height: 5em;
+}
+
+.css1 { font-size: 1.0em; }
+.css2 { font-size: 1.2em; }
+.css3 { font-size: 1.4em; }
+.css4 { font-size: 1.6em; }
+
+
+div.book_details {
+    padding: 1em;
+    margin: 1em;
+}
+
+div.book_details div.book_preview {
+    float:left;
+    padding: 1em;
+}
+
+div.book_details div.book_notes {
+    vertical-align: bottom;
+}
+
+div.book_notes p {
+    margin: 0;
+}
+
+span.tags {
+   font-size: 0.8em;
+}
+
+div.book_notes span.date {
+    
+}
+
+div.book_details div.book_actions {
+    padding-top: 0.3em;
+    border-top: 1px solid black;
+}
+
+ul.book_list {
+    list-style-type: none;
+}
+
+li.book_result { height: 60px;}
+
+li.book_result div.thumb {
+    height: 55px;
+    float: left;
+}
+
+li.book_result div.info {
+    line-height: 30px;
+    float: left;
+    padding-left: 5px;
+    vertical-align: center;
+}

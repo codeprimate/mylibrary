@@ -1,0 +1,9 @@
+[submodule "vendor/plugins/resource_controller"]
+	path = vendor/plugins/resource_controller
+	url = git://github.com/giraffesoft/resource_controller.git
+[submodule "vendor/plugins/paperclip"]
+	path = vendor/plugins/paperclip
+	url = git://github.com/thoughtbot/paperclip.git
+[submodule "vendor/plugins/acts_as_taggable_on_steroids"]
+	path = vendor/plugins/acts_as_taggable_on_steroids
+	url = git://github.com/jviney/acts_as_taggable_on_steroids.git

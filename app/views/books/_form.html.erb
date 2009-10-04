@@ -1,0 +1,25 @@
+<% form_for(book, :html => {:multipart => true}) do |form| %>
+  <%= form.error_messages %>
+  <ol class="formList">
+    <li>
+      <%= form.label :title %>
+      <%= form.text_field :title %>
+    </li>
+    <li>
+      <%= form.label :notes %>
+      <%= form.text_area :notes %>
+    </li>
+    <li>
+      <%= form.label :tag_list %>
+      <%= form.text_field :tag_list %>
+    </li>
+    <li>
+      <%= form.label :file %>
+      <%= form.file_field :asset %>
+    </li>
+    <li>
+      <%= form.submit "Submit" %>
+      <%= link_to("Cancel", :back) %>
+    </li>
+  </ol>
+<% end %>

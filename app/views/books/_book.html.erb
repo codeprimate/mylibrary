@@ -1,0 +1,6 @@
+<li class="book_result">
+    <div class="thumb"><%= image_tag(book.asset.url(:thumb)) %></div>
+    <div class="info">
+      <%= link_to(h(book.title), book_path(book)) %> <span class="tags">[<%=tag_list_for(book)%>]</span>
+    </div>
+</li>
