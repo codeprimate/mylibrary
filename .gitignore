@@ -3,3 +3,4 @@ nbproject/
 log/*.log
 db/*.sqlite3
 public/system
+config/application.yml

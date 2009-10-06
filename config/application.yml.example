@@ -1,0 +1,13 @@
+defaults: &defaults
+  auth:
+    guest: knowledge
+    admin: spartacus
+
+development:
+  <<: *defaults
+
+test:
+  <<: *defaults
+
+production:
+  <<: *defaults

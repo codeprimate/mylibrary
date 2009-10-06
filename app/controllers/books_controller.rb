@@ -1,8 +1,8 @@
 class BooksController < ResourceController::Base
   before_filter :save_location
-  before_filter :guest_authorization
-  before_filter :login_required, :only => [:new, :edit, :update, :destroy]
-  before_filter :get_tag_data
+  before_filter :login_required, :only => [:new, :edit, :create, :update, :destroy]
+  before_filter :guest_required, :only => [:show, :index, :tagged]
+  before_filter :get_tag_data, :only => [:show, :index, :tagged]
 
   destroy do
     wants.html {redirect_to books_path}
@@ -10,16 +10,11 @@ class BooksController < ResourceController::Base
 
 
   def show
-     @book = @object = Book.find(params[:id])
+    @book = @object = Book.find(params[:id])
   end
 
   def tagged
-    if logged_in?
-      @books = @collection = current_user.books.find_tagged_with(tag_selection, :match_all => true)
-    else
-      @books = @collection = Book.find_tagged_with(tag_selection, :match_all => true)
-    end
-    
+    @books = @collection = finder_scope.find_tagged_with(tag_selection, :match_all => true)
     tags_in_scope
     render :index
   end
@@ -31,19 +26,25 @@ class BooksController < ResourceController::Base
       format.html { redirect_to books_path}
     end
   end
+
+  def search
+    @books = @collection = finder_scope.title_or_notes_or_cached_tag_list_like(params[:search])
+    tags_in_scope
+    render :index
+  end
   
   private
+
+  def finder_scope
+    finder_scope = (logged_in? ? current_user.books : Book)
+  end
 
   def object
     @book ||= @object || current_user.books.find(param)
   end
 
   def collection
-    if logged_in?
-      @books = @collection ||= current_user.books
-    else
-      @books = @collection ||= Book.all
-    end
+    @books = @collection ||= finder_scope.all
     tags_in_scope
     return @collection
   end

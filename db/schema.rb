@@ -12,10 +12,13 @@
 ActiveRecord::Schema.define(:version => 20091003184613) do
 
   create_table "books", :force => true do |t|
+    t.integer  "user_id"
     t.string   "title"
     t.string   "author"
+    t.string   "publisher"
+    t.string   "cached_tag_list"
     t.text     "notes"
-    t.integer  "user_id"
+    t.date     "year"
     t.string   "asset_file_name"
     t.string   "asset_content_type"
     t.integer  "asset_file_size"

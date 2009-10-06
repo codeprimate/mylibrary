@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_filter :admin_required, :only => [:new, :create]
+  before_filter :login_required, :only => [:edit, :update]
 
   def new
     @user = User.new
