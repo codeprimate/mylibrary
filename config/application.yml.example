@@ -4,6 +4,8 @@ defaults: &defaults
     admin: spartacus
   paperclip:
     storage: filesystem
+  session:
+	secret: "7e36617b862c75f83d56b29fe04c20f183b236e776c7410a60d9535d8e106a8cd4f399afba0a20f5279a47f2efc5efa39145bbfdae9966fc0c77ddb7177afccc"
 
 development:
   <<: *defaults

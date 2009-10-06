@@ -15,6 +15,7 @@ http://www.patrick-morgan.net/
  $ cp config/amazon_s3.yml.example config/amazon_s3.yml
 
 Configure your yml files.
+Update config/deploy.rb if using.
 
  $ rake db:create:all
  $ script/server
