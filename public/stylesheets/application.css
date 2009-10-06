@@ -1,5 +1,6 @@
 body {
     color: #666;
+    font-family: sans;
 }
 
 div.clear { clear:both; }
@@ -121,7 +122,7 @@ li.book_result div.info {
 
 div#subnav_actions, div#subnav_cloud, div#subnav_search {
     margin: 0.5em;
-    width: 30%;
+    width: 31%;
     float: left;
 }
 
@@ -145,4 +146,19 @@ div#book_tag_cloud {
 
 div#book_tag_cloud span.title {
     font-weight: bold;
+}
+
+form.search input[type=text] {
+    height: 1em;
+    width: 10em;
+    margin-right: 0;
+}
+
+form.search input[type=submit] {
+    font-size: 0.8em;
+}
+
+span.search_string {
+    font-weight: bold;
+    color: #ccc;
 }

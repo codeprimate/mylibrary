@@ -1,4 +1,9 @@
-<h3><%= pluralize(@collection.size, "Book") %> Found</h3>
+<h3>
+  <%= pluralize(@collection.size, "Book") %> Found
+  <% if @search %>
+    Matching <span class="search_string"><%=h @search %></span>
+  <% end %>
+</h3>
 <ul class="book_list">
   <%= render @books %>
 </ul>

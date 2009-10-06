@@ -2,7 +2,7 @@ class BooksController < ResourceController::Base
   before_filter :save_location
   before_filter :login_required, :only => [:new, :edit, :create, :update, :destroy]
   before_filter :guest_required, :only => [:show, :index, :tagged]
-  before_filter :get_tag_data, :only => [:show, :index, :tagged]
+  before_filter :get_tag_data, :only => [:show, :index, :tagged, :search]
 
   destroy do
     wants.html {redirect_to books_path}
@@ -28,7 +28,8 @@ class BooksController < ResourceController::Base
   end
 
   def search
-    @books = @collection = finder_scope.title_or_notes_or_cached_tag_list_like(params[:search])
+    @search = params[:search]
+    @books = @collection = finder_scope.title_or_notes_or_cached_tag_list_like(@search)
     tags_in_scope
     render :index
   end
