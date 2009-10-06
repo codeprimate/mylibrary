@@ -1,5 +1,17 @@
 class Book < ActiveRecord::Base
-  has_attached_file :asset, :styles => { :medium => ["300x300>", :png], :thumb => ["50x50>", :png] }
+  has_attached_file :asset, 
+    {
+      :styles => { :medium => ["300x300>", :png], :thumb => ["50x50>", :png] }
+    }.merge(
+    Settings.paperclip.storage == 's3' ?
+    { :storage => Settings.paperclip.storage,
+      :s3_credentials => Settings.paperclip.credentials,
+      :path => Settings.paperclip.path,
+      :bucket => Settings.paperclip.bucket} :
+    {
+      :storage => "filesystem"
+    }
+    )
 
   validates_presence_of :title
   belongs_to :user
@@ -11,5 +23,5 @@ class Book < ActiveRecord::Base
     "#{id}-#{title.gsub(/[^a-zA-Z0-9_-]/,'-').gsub(/-+/,'-')}"
   end
 
-#  attr_accessible :title, :notes, :tag_list, :asset
+  #  attr_accessible :title, :notes, :tag_list, :asset
 end

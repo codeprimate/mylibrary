@@ -12,6 +12,10 @@ http://www.patrick-morgan.net/
  $ git submodule update
  $ cp config/database.yml.example config/database.yml
  $ cp config/application.yml.example config/application.yml
+ $ cp config/amazon_s3.yml.example config/amazon_s3.yml
+
+Configure your yml files.
+
  $ rake db:create:all
  $ script/server
 

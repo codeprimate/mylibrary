@@ -2,6 +2,8 @@ defaults: &defaults
   auth:
     guest: knowledge
     admin: spartacus
+  paperclip:
+    storage: filesystem
 
 development:
   <<: *defaults
@@ -11,3 +13,8 @@ test:
 
 production:
   <<: *defaults
+  paperclip:
+    storage: s3
+    credentials: "config/amazon_s3.yml"
+    path: ":attachment/:id/:style/:basename.:extension"
+    bucket: 'backet_name'
