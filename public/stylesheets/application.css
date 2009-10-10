@@ -3,11 +3,38 @@ body {
     font-family: sans;
 }
 
+a { color: #333}
+
+div#body {
+    width: 800px;
+    margin: 0 auto;
+}
+
 div.clear { clear:both; }
 
-h1,h2 { color: black;}
+h1,h2 {
+    color: black;
+    margin: 0.2em 1em;
+}
 
-div#header, div#footer {
+div#header {
+    border-bottom: 2px solid #666;
+    padding: 0.5em;
+}
+
+div#logo {
+    /*float: left;*/
+}
+
+div#logo h1 {
+    margin: 0;
+}
+
+div#header_links {
+
+}
+
+div#footer {
     text-align: right;
     border-bottom: 2px solid #ccc;
     padding: 0.5em;
@@ -19,7 +46,7 @@ ol.formList li {
 
 label {
     font-weight: bold;
-    width: 250px;
+    width: 100px;
     display: inline;
     float:left;
     text-align: right;
@@ -32,6 +59,16 @@ input[type=password], input[type=text],input[type=file], textarea {
     width: 30em;
     padding: 0.3em;
     margin: 0.5em;
+    border: none;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #666;
+    border-left: 1px solid #eee;
+    border-right: 1px solid #999;
+    font-size: 1.1em;
+    color: #444;
+    background: #fdfdfd;
+    font-family: sans;
+
 }
 
 input[type=password], input[type=text] {
@@ -40,15 +77,16 @@ input[type=password], input[type=text] {
 
 input[type=file] {
     height: 2em;
-        width: 30em;
+    width: 30em;
     padding: 0.3em;
     margin: 0.5em;
 }
 
 input[type=submit] {
-    /*margin-left: 250px;*/
-    margin: 0.5em;
+    padding: 0.3em;
+    margin: 0.2em;
     font-size: 1.2em;
+    margin-left: 30em;
 }
 
 textarea {
@@ -80,7 +118,7 @@ div.book_notes p {
 }
 
 span.tags {
-   font-size: 0.8em;
+    font-size: 0.6em;
 }
 
 span.date {
@@ -88,7 +126,7 @@ span.date {
 }
 
 div.book_notes span.date {
-    
+
 }
 
 div.book_details div.book_actions {
@@ -114,10 +152,11 @@ li.book_result div.thumb img {
 }
 
 li.book_result div.info {
-    line-height: 30px;
+    /*line-height: 30px;*/
     float: left;
     padding-left: 5px;
     vertical-align: center;
+    font-size: 1.1em;
 }
 
 div#subnav_actions, div#subnav_cloud, div#subnav_search {
@@ -150,12 +189,16 @@ div#book_tag_cloud span.title {
 
 form.search input[type=text] {
     height: 1em;
-    width: 10em;
+    width: 7em;
     margin-right: 0;
+    border: none;
+    border-bottom: 1px solid #aaa;
 }
 
 form.search input[type=submit] {
-    font-size: 0.8em;
+    font-size: 0.7em;
+    margin-left: 0.3em;
+    padding: 0.1em;
 }
 
 span.search_string {
